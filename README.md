@@ -1,3 +1,7 @@
+# TypeThaiTone-script
+
+TypeThaiTone-script is a specialized AppleScript developed to simplify writing transcriptions for Thai words when you also want to indicate the proper tone. Originally written for personal use, this script is shared in the hope that it will assist other macOS users learning Thai.
+
 ## Features
 
 - Easy selection of Thai tones and special characters through a prompt dialog.
