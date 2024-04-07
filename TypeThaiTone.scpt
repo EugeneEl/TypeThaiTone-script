@@ -1,5 +1,5 @@
 on run {input, parameters}
-	set charList to {"a", "á", "à", "â", "ă", "e", "é", "è", "ê", "ě", "i", "í", "Ì", "î", "ĭ", "o", "ó", "ò", "ô", "ŏ", "u", "ú", "ù", "û", "ŭ"}
+	set charList to {"a", "à", "á", "â", "ă", "e", "è", "é", "ê", "ě", "i", "ì", "í", "î", "ǐ", "o", "ò", "ó", "ô", "ŏ", "u", "ù", "ú", "û", "ŭ"}
 	set chosenChar to choose from list charList with prompt "Select a character to type:" without multiple selections allowed and empty selection allowed
 	if chosenChar is not false then
 		set the clipboard to (item 1 of chosenChar) as text
