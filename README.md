@@ -24,44 +24,6 @@ TypeThaiTone-script is a specialized AppleScript developed to simplify writing t
 - macOS operating system.
 - Basic familiarity with running scripts on macOS.
 
-### Steps
-
-1. **Download the Script**: Download the `TypeThaiTone-script` AppleScript file from this repository.
-
-2. **Open Script Editor**: Find the Script Editor application on your Mac (located in the `Applications > Utilities` folder).
-
-3. **Load the Script**: Open the downloaded `TypeThaiTone-script` file in Script Editor.
-
-4. **Review and Save the Script**: Inspect the script for your understanding and save it to your desired location. You may choose to save it as an application by selecting `File > Export` and then choosing `Application` from the File Format dropdown. This makes the script a standalone application.
-
-5. **Grant Accessibility Permissions**: For the script to simulate key presses and access the clipboard, macOS requires it to have Accessibility permissions. Go to `System Preferences > Security & Privacy > Privacy > Accessibility`, unlock the settings by clicking the lock icon, and add Script Editor (or your exported application) to the list of apps allowed to control your computer.
-
-## How to Use
-
-To use the script:
-
-1. **Run the Script**: Execute the script via Script Editor or double-click the exported application.
-
-2. **Select a Character**: A dialog box with a list of characters will appear. Choose the character you wish to use; it will then be copied to the clipboard.
-
-3. **Paste the Character**: Position the cursor in the desired input field and use `Cmd + V` to paste the character from the clipboard.
-
-### AppleScript
-
-```AppleScript
-on run {input, parameters}
-    set charList to {"a", "à", "á", "â", "ă", "e", "è", "é", "ê", "ě", "i", "ì", "í", "î", "ǐ", "o", "ò", "ó", "ô", "ŏ", "u", "ù", "ú", "û", "ŭ"}
-    set chosenChar to choose from list charList with prompt "Select a character to type:" without multiple selections allowed and empty selection allowed
-    if chosenChar is not false then
-        set the clipboard to (item 1 of chosenChar) as text
-        delay 0.5 -- Wait half a second to ensure clipboard is ready
-        tell application "System Events"
-            keystroke "v" using {command down} -- Command to paste from clipboard
-        end tell
-    end if
-end run
-```
-
 ## Setting Up a Hotkey
 
 To facilitate running this script with a hotkey for ease of use:
@@ -85,6 +47,34 @@ To facilitate running this script with a hotkey for ease of use:
     - Open `System Preferences` and navigate to `Keyboard > Shortcuts > Services`.
     - Scroll down to find "TypeThaiTone" under the "General" section.
     - Click on it, then click `Add Shortcut` and press the key combination you wish to use as a shortcut.
+
+### AppleScript
+
+```AppleScript
+on run {input, parameters}
+    set charList to {"a", "à", "á", "â", "ă", "e", "è", "é", "ê", "ě", "i", "ì", "í", "î", "ǐ", "o", "ò", "ó", "ô", "ŏ", "u", "ù", "ú", "û", "ŭ"}
+    set chosenChar to choose from list charList with prompt "Select a character to type:" without multiple selections allowed and empty selection allowed
+    if chosenChar is not false then
+        set the clipboard to (item 1 of chosenChar) as text
+        delay 0.5 -- Wait half a second to ensure clipboard is ready
+        tell application "System Events"
+            keystroke "v" using {command down} -- Command to paste from clipboard
+        end tell
+    end if
+end run
+```
+
+## How to Use
+
+To use the script:
+
+1. **Run the Script**: Execute the script via Script Editor or double-click the exported application.
+
+2. **Select a Character**: A dialog box with a list of characters will appear. Choose the character you wish to use; it will then be copied to the clipboard.
+
+3. **Paste the Character**: Position the cursor in the desired input field and use `Cmd + V` to paste the character from the clipboard.
+
+![TypeThaiTone Demo](TypeThaiTone_demo.gif)
 
 ## Troubleshooting
 
